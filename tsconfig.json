@@ -5,7 +5,7 @@
     "types",
     "src/data-structures/list",
     "src/data-structures/list/test/LinkedListTest.ts",
-    "src/data-structures/list/test/SinglyLinkedListTest.ts"
+    "src/data-structures/list/test/SinglyLinkedList.test.ts"
   ],
   "compilerOptions": {
     "module": "esnext",
