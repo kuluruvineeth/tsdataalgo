@@ -47,5 +47,63 @@ export function TestLinkedList(LinkedList: LinkedListConstructor) {
         expect(list.get(0)).toBe(1)
         expect(list.get(2)).toBe(3)
     })
+
+    it('should remove tail from the list and return correct head and tail',() => {
+      expect(list.removeTail()).toBe(3)
+      expect(list.get(0)).toBe(1)
+      expect(list.get(1)).toBe(2)
+    })
+
+    it('should insert nodes at the correct index',() => {
+      list.insertAt(1,4)
+
+      expect(list.get(1)).toBe(4)
+    })
+
+    it('should remove nodes at the correct index',() => {
+      expect(list.removeAt(1)).toBe(2)
+    })
+
+    it('should return null for removeAt when index is out of bounds',() => {
+      expect(() => list.removeAt(3)).toThrowError('Index out of bounds')
+    })
+
+    it('should clear the list',() => {
+      list.clear()
+
+      expect(list.isEmpty()).toBeTruthy()
+    })
+
+    it('should convert the list to be an array',() => {
+      expect(list.toArray()).toEqual([1,2,3])
+    })
+
+    it('should return correct length',() => {
+      expect(list.getLength()).toBe(3)
+    })
+  })
+
+  describe('with empty list',() => {
+    let list: LinkedList<number>
+
+    beforeEach(() => {
+      list = new LinkedList<number>()
+    })
+
+    it('should return true for isEmpty when list is empty',() => {
+      expect(list.isEmpty()).toBeTruthy()
+    })
+
+    it('should return null for get when index is out of bounds',() => {
+      expect(list.get(1)).toBeNull()
+    })
+
+    it('should throw error for pop when list is empty',() => {
+      expect(() => list.pop()).toThrowError('Index out of bounds')
+    })
+
+    it('should return null for removeTail when list is empty',() => {
+      expect(() => list.removeTail()).toThrowError('Index out of bounds')
+    })
   })
 }
