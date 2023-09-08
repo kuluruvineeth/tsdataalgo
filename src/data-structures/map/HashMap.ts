@@ -1,4 +1,13 @@
-import { Map } from './map';
+import { Map } from './Map';
+
+/**
+ * Represents a key-value pair
+ *
+ * @template K The type of the key
+ * @template V The type of the value
+ * @param key The key.
+ * @param value The value.
+ */
 
 export class HashMapEntry<K, V> {
   key: K;
@@ -10,6 +19,20 @@ export class HashMapEntry<K, V> {
   }
 }
 
+/**
+ * Represents a hash map.
+ * Time Complexity
+ * - Set, Get, Delete, Has: O(1) on average, O(n) in the worst case.
+ * - Clear: O(m) where m is the number of buckets.
+ * - Keys, Values, Entries: O(n + m)
+ *
+ * @template K The key type.
+ * @template V The value type.
+ * @param size The size of the hash map.
+ * @param buckets The buckets in which to store the key-value pairs.
+ * @param loadFactor The load factor to determine when to resize the hash map.
+ */
+
 export class HashMap<K, V> implements Map<K, V> {
   private size!: number;
   private buckets!: HashMapEntry<K, V>[][];
@@ -19,9 +42,22 @@ export class HashMap<K, V> implements Map<K, V> {
     this.clear();
   }
 
+  /**
+   * Gets the size.
+   *
+   * @returns The size.
+   */
+
   getSize(): number {
     return this.size;
   }
+
+  /**
+   * Sets a key-value pair.
+   *
+   * @param key The key.
+   * @param value The value.
+   */
   set(key: K, value: V): void {
     const loadFactor = this.size / this.buckets.length;
     if (loadFactor > this.loadFactor) {
@@ -47,6 +83,13 @@ export class HashMap<K, V> implements Map<K, V> {
     bucket.push(new HashMapEntry(key, value));
     this.size++;
   }
+
+  /**
+   * Gets a value
+   *
+   * @param key The key to get the value for.
+   * @returns The value or null if the key does not exist.
+   */
   get(key: K): V | null {
     const index = this.hash(key);
     const bucket = this.buckets[index];
@@ -59,6 +102,12 @@ export class HashMap<K, V> implements Map<K, V> {
 
     return null;
   }
+
+  /**
+   * Deletes a key-value pair.
+   *
+   * @param key The key whose key-value pair to delete.
+   */
   delete(key: K): void {
     const index = this.hash(key);
     const bucket = this.buckets[index];
@@ -71,6 +120,13 @@ export class HashMap<K, V> implements Map<K, V> {
       }
     }
   }
+
+  /**
+   * Checks if a key exists.
+   *
+   * @param key The key.
+   * @returns Whether the key exists.
+   */
   has(key: K): boolean {
     const index = this.hash(key);
     const bucket = this.buckets[index];
@@ -82,10 +138,20 @@ export class HashMap<K, V> implements Map<K, V> {
     }
     return false;
   }
+
+  /**
+   * Clears the hash map.
+   */
   clear(): void {
     this.size = 0;
     this.initializeBuckets(16);
   }
+
+  /**
+   * Geta all keys.
+   *
+   * @returns The keys.
+   */
   keys(): K[] {
     const keys: K[] = [];
     for (const bucket of this.buckets) {
@@ -95,6 +161,12 @@ export class HashMap<K, V> implements Map<K, V> {
     }
     return keys;
   }
+
+  /**
+   * Gets all values.
+   *
+   * @returns The values.
+   */
   values(): V[] {
     const values: V[] = [];
     for (const bucket of this.buckets) {
@@ -104,6 +176,12 @@ export class HashMap<K, V> implements Map<K, V> {
     }
     return values;
   }
+
+  /**
+   * Gets all entries.
+   *
+   * @returns The entries.
+   */
   entries(): HashMapEntry<K, V>[] {
     const entries: HashMapEntry<K, V>[] = [];
     for (const bucket of this.buckets) {
@@ -114,12 +192,27 @@ export class HashMap<K, V> implements Map<K, V> {
     return entries;
   }
 
+  /**
+   * Initializes the buckets.
+   *
+   * @param amount The amount of buckets to initialize.
+   */
+
   private initializeBuckets(amount: number): void {
     this.buckets = [];
     for (let i = 0; i < amount; i++) {
       this.buckets.push([]);
     }
   }
+
+  /**
+   * Hashes a key to an index.
+   * This implementation uses the djb2 algorithm, which might not be the best.
+   * Feel free to change it to something else.
+   *
+   * @param key The key.
+   * @returns The index.
+   */
 
   protected hash(key: K): number {
     let hash = 0;
@@ -130,6 +223,10 @@ export class HashMap<K, V> implements Map<K, V> {
 
     return hash % this.buckets.length;
   }
+
+  /**
+   * Resizes the hash map by doubling the amount of buckets.
+   */
 
   private resize(): void {
     const entries = this.entries();
