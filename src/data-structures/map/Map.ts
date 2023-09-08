@@ -1,5 +1,8 @@
 import { HashMapEntry } from './HashMap';
 
+/**
+ * This interface is a representation of the Map data structure
+ */
 export interface Map<K, V> {
   getSize(): number;
   set(key: K, value: V): void;
