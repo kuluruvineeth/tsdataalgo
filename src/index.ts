@@ -10,6 +10,15 @@ import { HashMapSet } from './data-structures/set/HashMapSet';
 import { Stack } from './data-structures/stack/StackImpl';
 import { LinkedListStack } from './data-structures/stack/LinkedListStack';
 import { BinarySearchTree } from './data-structures/tree/BinarySearchTree';
+import { MaxHeap } from './data-structures/heap/heap';
+import { MinHeap } from './data-structures/heap/heap';
+import { PriroityQueue } from './data-structures/heap/heap';
+import { DisjointSet } from './data-structures/disjoint-set/DisjointSet';
+import { MergeSort } from './algorithms/sorts/MergeSort';
+import { InsertionSort } from './algorithms/sorts/InsertionSort';
+import { SelectionSort } from './algorithms/sorts/SelectionSort';
+import { BubbleSort } from './algorithms/sorts/BubbleSort';
+import { QuickSort } from './algorithms/sorts/QuickSort';
 
 export {
   SinglyLinkedList,
@@ -24,4 +33,13 @@ export {
   Stack,
   LinkedListStack,
   BinarySearchTree,
+  MaxHeap,
+  MinHeap,
+  PriroityQueue,
+  DisjointSet,
+  InsertionSort,
+  QuickSort,
+  BubbleSort,
+  MergeSort,
+  SelectionSort,
 };
