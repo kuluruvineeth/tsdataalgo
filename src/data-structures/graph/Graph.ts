@@ -1,4 +1,4 @@
-class Graph<T, V> {
+export class Graph<T, V> {
   private _nodes: Map<
     T,
     {
@@ -111,8 +111,8 @@ class Graph<T, V> {
    * @param {T} value The value of the node.
    */
   getNeighbors(value: T): ReadonlyArray<T> {
-    const neighbors = this._nodes.get(value)?.to;
-    return Array.from(neighbors !== null ? neighbors!.keys() : []);
+    const neighbors = this._nodes.get(value)!.to!;
+    return Array.from(neighbors !== null ? neighbors?.keys() : []);
   }
 
   /**
