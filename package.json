@@ -46,6 +46,7 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.2.6",
     "@types/jest": "^29.5.4",
+    "@types/lodash": "^4.14.198",
     "husky": "^8.0.3",
     "jest": "^29.6.4",
     "jest-environment-jsdom": "^29.6.4",

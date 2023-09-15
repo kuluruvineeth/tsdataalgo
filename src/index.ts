@@ -19,8 +19,66 @@ import { InsertionSort } from './algorithms/sorts/InsertionSort';
 import { SelectionSort } from './algorithms/sorts/SelectionSort';
 import { BubbleSort } from './algorithms/sorts/BubbleSort';
 import { QuickSort } from './algorithms/sorts/QuickSort';
+import { BinarySearchTreeV2 } from './data-structures/tree/BinarySearchTree';
+import BreadthFirstSearch from './algorithms/graphs/BreadthFirstSearch';
+import DepthFirstSearch from './algorithms/graphs/DepthFirstSearch';
+import DijkstraAlgorithm from './algorithms/graphs/DijkstraAlgorithm';
+import FloydWarshallAlgorithm from './algorithms/graphs/FloydWarshall';
+import HeapSort from './algorithms/sorts/HeapSort';
+import topologicalSort from './algorithms/graphs/TopologocalSort';
+
+import AVLTree from './data-structures/tree/AVLTree';
+import { BinaryTree } from './data-structures/tree/BinaryTree';
+import { BinaryTreeNode } from './data-structures/tree/BinaryTreeNode';
+import BloomFilter from './data-structures/BloomFilter';
+import Counter from './data-structures/Counter';
+import Deque from './data-structures/queue/Deque';
+import DisjointSetV2 from './data-structures/disjoint-set/DisjointSetV2';
+import DoublyLinkedListV2 from './data-structures/list/DoublyLinkedListV2';
+import { Graph } from './data-structures/graph/Graph';
+import HeapV2 from './data-structures/heap/HeapV2';
+import ListV2 from './data-structures/list/ListV2';
+import NDArray from './data-structures/NDArray';
+import Node from './data-structures/Node';
+import PriorityQueueV2 from './data-structures/heap/PriorityQueueV2';
+import QueueV2 from './data-structures/queue/QueueV2';
+import StackV2 from './data-structures/stack/StackV2';
+import Trie from './data-structures/trie/Trie';
+
+import deepClone from './utils/DeepClone';
+import * as langUtils from './utils/LangUtils';
+import NullThrows from './utils/NullThrows';
+import randomInt from './utils/RandomInt';
 
 export {
+  BinarySearchTreeV2,
+  BreadthFirstSearch,
+  DepthFirstSearch,
+  DijkstraAlgorithm,
+  FloydWarshallAlgorithm,
+  HeapSort,
+  topologicalSort,
+  AVLTree,
+  BinaryTree,
+  BinaryTreeNode,
+  BloomFilter,
+  Counter,
+  QueueV2,
+  Deque,
+  DisjointSetV2,
+  DoublyLinkedListV2,
+  Graph,
+  HeapV2,
+  ListV2,
+  NDArray,
+  Node,
+  PriorityQueueV2,
+  StackV2,
+  Trie,
+  deepClone,
+  langUtils,
+  NullThrows,
+  randomInt,
   SinglyLinkedList,
   DoublyLinkedList,
   HashMap,
